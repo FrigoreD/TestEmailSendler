@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', Function(Blueprint $table) {
             $table->string('username')->index()->unique();
-            $table->string('email')->unique();
+            $table->string('email');
             $table->integer('validts');
             $table->boolean('confirmed');
         });
