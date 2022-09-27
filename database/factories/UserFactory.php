@@ -22,9 +22,9 @@ class UserFactory extends Factory
     {
         $emails = Email::all()->pluck('email');
         return [
-            'username' => $this->faker->userName(), 
+            'username' => $this->faker->userName(),
             'email'=> $this->faker->randomElement($emails),
-            'validts'=> 1,
+            'validts'=> Carbon::now()->addMonth()->subDays(rand(1, 27))->timestamp,
             'confirmed' => false,
         ];
     }
