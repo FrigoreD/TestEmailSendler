@@ -28,11 +28,15 @@ You need to change these lines
 > MAIL_USERNAME=your_email
 
 > MAIL_PASSWORD=your_password
-> 
+
 4. set key and migrate tables
+
 > php artisan key:generate
-php artisan migrate
+
+>php artisan migrate
+
 5. for deploy you can also use these
+
 > php artisan config:cache
 
 >php artisan route:cache

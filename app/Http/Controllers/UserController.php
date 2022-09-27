@@ -12,9 +12,18 @@ use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function createUserForm(){
         return view('form');
 }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function UserForm(Request $request){
         $this->validate($request, [
             'email' => 'required|email|unique:users',
@@ -43,6 +52,11 @@ class UserController extends Controller
         return back()->with('success', 'user created');
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function check_email(Request $request){
         $this->validate($request, [
             'emailForm' => 'required',
@@ -73,6 +87,10 @@ class UserController extends Controller
             return back()->with('successCheck', 'Email checked');
         }
     }
+
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function authenticateEmail(){
         $route = Route::getCurrentRoute()->parameters;
         User::query()->where('username', $route['token'])->update(['confirmed' => true]);
