@@ -3,55 +3,34 @@
 # Email Notify
 
 ## Getting Started
-1. remote and pull the latest version of the source code on your host
-> git remote add your_name _https://github.com/FrigoreD/Rbroker-bot.git_
+1. clone
+> git clone https://github.com/FrigoreD/TestEmailSendler.git
 
-> git pull your_name
-2. install with conposer
-> composer install --optimize-autoloader --no-dev
-3. make and edit .env file's lines
->mv .env.example .env
+2. install packages with docker
+> docker-compose up --build -d
 
-You need to change these lines
->DB_DATABASE=your_db_name
+3. make and edit .env
+> mv .env.example .env
 
->DB_USERNAME=your_db_login
+4. set key, install composer and migrate tables in container
 
->DB_PASSWORD=your_db_password
+>docker exec -it TestEmailSendler_app
 
-> MAIL_MAILER=smtp
+>composer install && npm install
 
-> MAIL_HOST=smtp.mail
-
-> MAIL_PORT=465
-
-> MAIL_USERNAME=your_email
-
-> MAIL_PASSWORD=your_password
-
-4. set key and migrate tables
-
-> php artisan key:generate
+>php artisan key:generate
 
 >php artisan migrate
 
-5. for deploy you can also use these
-
-> php artisan config:cache
-
->php artisan route:cache
-
->php artisan view:cache
-
->php artisan storage:link
 6. Factories
+
 >php artisan db:seed --class=UserSeeder
+
 7. local serve
->vite
 
->php artisan serve
+>docker exec -it TextEmailSendler_node
 
-> npm install
+>npm run dev
 
 ## Documentation
 

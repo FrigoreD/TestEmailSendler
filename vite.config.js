@@ -6,7 +6,7 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/sass/app.scss',
+                'resources/sass/app.css',
                 'resources/js/app.js',
             ],
             refresh: true,
@@ -20,6 +20,12 @@ export default defineConfig({
             },
         }),
     ],
+    server: {
+        port: 8000,
+        hmr: {
+            host: 'localhost'
+        }
+    },
     resolve: {
         alias: {
             vue: 'vue/dist/vue.esm-bundler.js',
