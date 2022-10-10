@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserViewController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -16,10 +17,11 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('index');
-})->name('index');
+})->name('form');
 
 Route::get('email-auth/{token}', [UserController::class, 'authenticateEmail'])->name('auth.email');
 
+Route::get('/users', [UserViewController::class, 'showUsers'])->name('users');
 Route::get('/form', [UserController::class, 'createUserForm']);
 Route::post('/form', [UserController::class, 'UserForm'])->name('validate.form');
 Route::post('/email', [UserController::class, 'check_email'])->name('validate.email');

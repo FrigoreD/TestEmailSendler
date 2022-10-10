@@ -9,7 +9,12 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-<div id="app" >
+    <ul>
+        <li><a href = "{{route('users')}}">Users</a></li>
+        <li><a href = ''>Home</a></li>
+        <li><a href = "{{route('form')}}">Form</a></li>
+    </ul>
+<div class = 'forms'>
         <form class="user-form"  method="POST" action="{{route('validate.form')}}" novalidate>
             @csrf
             @if(Session::has('success'))
