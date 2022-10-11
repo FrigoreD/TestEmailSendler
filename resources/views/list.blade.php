@@ -2,9 +2,9 @@
 
 @section('content')
     @if(count($users))
-        <div>
+        <div class = 'allTable'>
         <table class="table">
-            <thead>
+            <thead class = 'thread'>
             <tr>
                 <th scope="col">Usernames</th>
                 <th scope="col">Emails</th>
@@ -21,8 +21,7 @@
         </table>
         </div>
 
-
-        {{$users->appends(['s'=>request()->s]) -> links()}}
+            {!! $users-> links() !!}
     @else
         <p>Записей не найдено</p>
     @endif

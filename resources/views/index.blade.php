@@ -9,7 +9,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-    <ul>
+    <ul class = 'customNavBar'>
         <li><a href = "{{route('users')}}">Users</a></li>
         <li><a href = ''>Home</a></li>
         <li><a href = "{{route('form')}}">Form</a></li>

@@ -5,28 +5,33 @@ body {
     flex-direction: column;
     justify-content: center;
     height: 100vh;
+    font-family: Segoe UI Symbol;
+    margin: 0;
 }
 
-ul {
+.customNavBar{
     padding: 0;
+    margin-top: 50px;
     border-radius: 20px;
     background-color: #15172b;
     overflow: hidden;
     position: fixed;
     top: 0;
+    list-style-type: none;
+    line-height: 1.5;
 }
-li{
+.customNavBar li{
     float: left;
 }
 
-li a{
+.customNavBar li a{
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
-li a:hover{
+.customNavBar li a:hover{
     background-color: #111;
 }
 
@@ -185,8 +190,9 @@ li a:hover{
     border: 1px solid #dddddd;
     padding: 5px;
 }
-.paginate{
-    display: inline;
+
+.pagination {
+
 }
 
 
